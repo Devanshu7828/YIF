@@ -2,7 +2,7 @@ const User = require("../models/userModel.js");
 const passport = require("passport");
 const mailgun = require("mailgun-js");
 const jwt = require("jsonwebtoken");
-const DOMAIN = "sandbox9e9e9955296f4fc9a46ceb375ed5407d.mailgun.org";
+
 // ----------------------------------------------------------//
 
 // ----------------------------------------------------------//

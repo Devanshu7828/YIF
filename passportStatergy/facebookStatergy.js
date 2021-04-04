@@ -7,7 +7,7 @@ function init(passport) {
       {
         clientID: process.env.FBAPPID,
         clientSecret: process.env.FBAPPSECRET,
-        callbackURL: "https://yif-node-app.herokuapp.com/fb/auth",
+        callbackURL: "https://yif-node-app.herokuapp.com/fb/auth/callback",
         profileFields: [
           "id",
           "displayName",

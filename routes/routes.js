@@ -8,8 +8,8 @@ const pageController = require("../controoler/pageControoler");
 const authControoler = require("../controoler/authControoler");
 // PASSPORT middleware
 const google = require("../middleware/googleMiddleware");
-const fb=require("../middleware/fbMidleware")
-const linkedin=require("../middleware/linkedinMiddleware")
+const fb = require("../middleware/fbMidleware");
+const linkedin = require("../middleware/linkedinMiddleware");
 // PAGE ROUTES
 router.get("/", pageController.homePage);
 router.get("/form", guest, pageController.form);
@@ -24,12 +24,20 @@ router.get("/logout", authControoler.logoutUser);
 
 // GOOGLE LOGIN SYSTEM
 router.get("/google/auth", google.googleMiddleware);
-router.get("/google/auth/callback",google.googleLogin);
+router.get("/google/auth/callback", google.googleLogin);
 
 // FACEBOOK LOGIN SYSTEM
-router.get('/fb/auth', fb.fbLogin)
+router.get("/fb/auth", passport.authenticate("facebook"));
+
+router.get(
+  "/fb/auth/callback",
+  passport.authenticate("facebook", {
+    successRedirect: "/",
+    failureRedirect: "/form",
+  })
+);
 
 // LINKEDIN LOGIN SYSTEM
-router.get('/linkedin/auth', linkedin.linkedinMiddleware);
-router.get('/auth/linkedin/callback',linkedin.linkedinLogin)
+router.get("/linkedin/auth", linkedin.linkedinMiddleware);
+router.get("/auth/linkedin/callback", linkedin.linkedinLogin);
 module.exports = router;
