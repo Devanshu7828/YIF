@@ -7,7 +7,7 @@ function init(passport) {
       {
         clientID: process.env.GOOGLEAPPID,
         clientSecret: process.env.GOOGLESECRET,
-        callbackURL: "http://localhost:3000/google/auth/callback",
+        callbackURL: "https://yif-node-app.herokuapp.com/google/auth/callback",
         passReqToCallback: true,
       },
       async function (request, accessToken, refreshToken, profile, done) {

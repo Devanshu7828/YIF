@@ -6,7 +6,7 @@ function init(passport) {
       {
         clientID: process.env.LINKEDIN_APP_ID,
         clientSecret: process.env.LINKEDIN_SECRET,
-        callbackURL: "http://localhost:3000/auth/linkedin/callback",
+        callbackURL: "https://yif-node-app.herokuapp.com/auth/linkedin/callback",
         scope: ["r_emailaddress", "r_liteprofile"],
       },
       async function (accessToken, refreshToken, profile, done) {

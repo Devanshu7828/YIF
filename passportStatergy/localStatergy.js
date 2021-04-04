@@ -2,7 +2,7 @@ const LocalStatergy = require("passport-local").Strategy;
 const bcrypt = require("bcryptjs");
 const passport = require("passport");
 const User = require("../models/userModel");
-
+const jwt = require("jsonwebtoken");
 function init(passport) {
   passport.use(
     new LocalStatergy(

@@ -1,5 +1,11 @@
 const User = require("../models/userModel.js");
 const passport = require("passport");
+const mailgun = require("mailgun-js");
+const jwt = require("jsonwebtoken");
+const DOMAIN = "sandbox9e9e9955296f4fc9a46ceb375ed5407d.mailgun.org";
+// ----------------------------------------------------------//
+
+// ----------------------------------------------------------//
 const registerUser = async (req, res) => {
   const { email, password, name } = req.body;
   // VALIDATE REQUEST
@@ -10,6 +16,7 @@ const registerUser = async (req, res) => {
     return res.redirect("/form");
   }
   // CHECK IF EMAIL EXIST IN OUR DATABASE
+
   User.exists({ email: email }, async (err, result) => {
     if (result) {
       req.flash("error", "Email already exists"), req.flash("name", name);
@@ -17,6 +24,10 @@ const registerUser = async (req, res) => {
       return res.redirect("/form");
     }
 
+    const token = await jwt.sign({ email, password }, process.env.JWT_SECRET);
+    res.cookie("jwt", token, {
+      httpOnly: true,
+    });
     //   CREATE USER AND SAVE IN DATABASE
     const user = new User({
       name,
@@ -53,6 +64,11 @@ const loginUser = async (req, res, next) => {
         req.flash("error", info.message);
         return next(err);
       }
+      const { email, password } = user;
+      const token = jwt.sign({ email, password }, process.env.JWT_SECRET);
+      res.cookie("jwt", token, {
+        httpOnly: true,
+      });
 
       return res.redirect("/");
     });
@@ -64,8 +80,4 @@ const logoutUser = async (req, res) => {
   return res.redirect("/");
 };
 
-const googleAuth = passport.authenticate("google", {
-  scope: ["email", "profile"],
-});
-
-module.exports = { registerUser, loginUser, logoutUser, googleAuth };
+module.exports = { registerUser, loginUser, logoutUser };

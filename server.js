@@ -12,12 +12,15 @@ const session = require("express-session");
 const connectflash = require("express-flash");
 const MongoDbStore = require("connect-mongo");
 const passport = require("passport");
+const cookieParser = require("cookie-parser")
 // show routes
 app.use(morgan("dev"));
 
 // DB
 require("./database/database");
 
+// cookie
+app.use(cookieParser())
 // INITIALISE SESSION
 app.use(
   session({
