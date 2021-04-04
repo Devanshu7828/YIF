@@ -24,10 +24,6 @@ const registerUser = async (req, res) => {
       return res.redirect("/form");
     }
 
-    const token = await jwt.sign({ email, password }, process.env.JWT_SECRET);
-    res.cookie("jwt", token, {
-      httpOnly: true,
-    });
     //   CREATE USER AND SAVE IN DATABASE
     const user = new User({
       name,
@@ -64,11 +60,6 @@ const loginUser = async (req, res, next) => {
         req.flash("error", info.message);
         return next(err);
       }
-      const { email, password } = user;
-      const token = jwt.sign({ email, password }, process.env.JWT_SECRET);
-      res.cookie("jwt", token, {
-        httpOnly: true,
-      });
 
       return res.redirect("/");
     });
