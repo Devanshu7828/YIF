@@ -1,0 +1,90 @@
+* {
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-size: 16px;
+  background: url('../images/background.jpeg');
+}
+
+a {
+  text-decoration: none;
+  color: #fff;
+}
+a:hover {
+  color: orange;
+  transition: all 0.2s;
+}
+.container {
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+  width: 50%;
+  padding-top: 5%;
+}
+
+/* Navigation */
+
+.navbar .container-fluid .navbar-brand:hover {
+  color: orange;
+  transition: all 0.2s;
+}
+.nav-item:hover {
+  border-bottom: 0.5px solid orange;
+  transition: all 0.4s;
+}
+
+/* lms content */
+
+._lms-img {
+  overflow: hidden;
+  padding: 0;
+  border-radius: 4px;
+}
+
+/* btn */
+
+.btn {
+  border: 1px solid black;
+}
+.btn:hover {
+  background: orange;
+  transition: all 0.2s;
+}
+
+/* card  */
+.card {
+  overflow: hidden;
+  border-radius: 4px;
+  border: 0;
+}
+.card ._card-img {
+  overflow: hidden;
+}
+.card:hover ._card-img img {
+  transform: scale(1.1);
+  transition: all 0.2s;
+}
+.card:hover ._overlay-title {
+  color: orange;
+  transition: all 0.2s;
+}
+
+/* overlay */
+.card ._overlay {
+  position: absolute;
+  height: 220px;
+  width: 100%;
+  background: #333;
+  opacity: 0.5;
+}
+.card ._overlay-title {
+  padding: 97px 0;
+  position: absolute;
+  width: 100%;
+  margin: 0;
+  color: #fff;
+  font-size: 18px;
+}

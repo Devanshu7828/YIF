@@ -1,0 +1,46 @@
+<header class="header fixed-top">
+  <!-- Navigation-->
+
+  <nav class="navbar navbar-expand-sm navbar-dark bg-dark">
+    <div class="container-fluid">
+      <div class="w-50 text-white">
+        <a class="navbar-brand" href="/">
+          <img src="./images/16.jpg" class="pe-2" width="56px" />
+          YIF LMS
+        </a>
+      </div>
+      <button
+        class="navbar-toggler"
+        type="button"
+        data-bs-toggle="collapse"
+        data-bs-target="#navbarNav"
+        aria-controls="navbarNav"
+        aria-expanded="false"
+        aria-label="Toggle navigation"
+      >
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse me-3" id="navbarNav">
+        <ul class="navbar-nav w-100 justify-content-evenly">
+         
+          <li class="nav-item px-2">
+            <a class="nav-link text-white" href="/course">Course</a>
+          </li>
+          <li class="nav-item px-2">
+            <a class="nav-link text-white" href="/about">About Us</a>
+          </li>
+          <% if (user) { %>
+
+            <li class="nav-item px-2">
+              <a class="nav-link text-white" href="/logout">Logout</a>
+            </li>
+            <% } else { %>
+            <li class="nav-item px-2">
+              <a class="nav-link text-white" href="/form">Sign In</a>
+            </li>
+            <%} %>
+        </ul>
+      </div>
+    </div>
+  </nav>
+</header>
