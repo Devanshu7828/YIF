@@ -21,7 +21,7 @@ const coursePage = (req, res) => {
 }
 
 const lmsPage = (req, res) => {
-    res.render('lmspage')
+    res.render('lmsPage')
 }
 
 module.exports = {homePage,Signform,registerForm,aboutPage,coursePage,lmsPage};
