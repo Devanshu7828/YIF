@@ -10,9 +10,11 @@ const authControoler = require("../controoler/authControoler");
 const google = require("../middleware/googleMiddleware");
 const fb = require("../middleware/fbMidleware");
 const linkedin = require("../middleware/linkedinMiddleware");
+
 // PAGE ROUTES
 router.get("/", pageController.homePage);
-router.get("/form", guest, pageController.form);
+router.get("/login", guest, pageController.Signform);
+router.get("/register", guest, pageController.registerForm);
 router.get("/about", pageController.aboutPage);
 router.get("/course", pageController.coursePage);
 router.get("/lms", pageController.lmsPage);

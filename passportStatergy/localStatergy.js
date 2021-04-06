@@ -15,7 +15,7 @@ function init(passport) {
 
         if (!user) {
           return done(null, false, {
-            message: "No User Found",
+            message: "No User Found With This Email!",
           });
         }
 
@@ -25,7 +25,7 @@ function init(passport) {
           // const token = await user.generateToken();
           return done(null, user, { message: "Logged in succesfully" });
         } else {
-          return done(null, false, { message: "Wrong Details" });
+          return done(null, false, { message: "Incorect Details!" });
         }
       }
     )

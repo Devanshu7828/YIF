@@ -3,8 +3,12 @@ const homePage = (req, res) => {
     res.render('homepage')
 }
 
-const form = (req, res) => {
-    res.render('./forms/form')
+const Signform = (req, res) => {
+    res.render('./forms/signin')
+}
+
+const registerForm = (req, res) => {
+    res.render('./forms/registration')
 }
 
 
@@ -20,4 +24,4 @@ const lmsPage = (req, res) => {
     res.render('lmspage')
 }
 
-module.exports = {homePage,form,aboutPage,coursePage,lmsPage};
+module.exports = {homePage,Signform,registerForm,aboutPage,coursePage,lmsPage};

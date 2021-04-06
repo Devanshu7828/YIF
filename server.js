@@ -12,7 +12,7 @@ const session = require("express-session");
 const connectflash = require("express-flash");
 const MongoDbStore = require("connect-mongo");
 const passport = require("passport");
-const cookieParser = require("cookie-parser")
+const cookieParser = require("cookie-parser");
 // show routes
 app.use(morgan("dev"));
 
@@ -20,7 +20,7 @@ app.use(morgan("dev"));
 require("./database/database");
 
 // cookie
-app.use(cookieParser())
+app.use(cookieParser());
 // INITIALISE SESSION
 app.use(
   session({
@@ -29,6 +29,8 @@ app.use(
     store: MongoDbStore.create({ mongoUrl: process.env.MONGO_URL }),
     collection: "session",
     saveUninitialized: false,
+    
+    cookie: { maxAge: 1000 * 60 * 60 * 24 }, //24hours
   })
 );
 

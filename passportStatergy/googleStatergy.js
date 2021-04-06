@@ -20,7 +20,6 @@ function init(passport) {
           const updateTOken = await User.findOneAndUpdate({
             tokens: accessToken,
           });
-
           return done(null, user);
         }
         const newUser = await User({
@@ -30,6 +29,7 @@ function init(passport) {
           pic: profile.picture,
           tokens: accessToken,
         });
+
         await newUser.save();
         return done(null, newUser);
       }
