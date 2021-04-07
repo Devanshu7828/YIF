@@ -10,6 +10,7 @@ const authControoler = require("../controoler/authControoler");
 const google = require("../middleware/googleMiddleware");
 const fb = require("../middleware/fbMidleware");
 const linkedin = require("../middleware/linkedinMiddleware");
+const github = require("../middleware/gitMiddleware");
 
 // PAGE ROUTES
 router.get("/", pageController.homePage);
@@ -29,24 +30,13 @@ router.get("/google/auth", google.googleMiddleware);
 router.get("/google/auth/callback", google.googleLogin);
 
 // FACEBOOK LOGIN SYSTEM
-router.get("/fb/auth", passport.authenticate("facebook"));
+router.get("/fb/auth", fb.fbMidleware);
 
-router.get(
-  "/fb/auth/callback",
-  passport.authenticate("facebook", {
-    successRedirect: "/",
-    failureRedirect: "/form",
-  })
-);
-
+router.get("/fb/auth/callback", fb.fbLogin);
 
 // GIHUB LOGIN SYSTEM
-router.get("/git/auth", passport.authenticate("github"));
-router.get("/git/auth/callback", passport.authenticate("github", {
-  successRedirect:'/',
-  successRedirect:'/login',
-}));
-
+router.get("/git/auth", github.gitMiddleware);
+router.get("/git/auth/callback", github.gitLogin);
 
 // LINKEDIN LOGIN SYSTEM
 router.get("/linkedin/auth", linkedin.linkedinMiddleware);
