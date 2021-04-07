@@ -39,6 +39,15 @@ router.get(
   })
 );
 
+
+// GIHUB LOGIN SYSTEM
+router.get("/git/auth", passport.authenticate("github"));
+router.get("/git/auth/callback", passport.authenticate("github", {
+  successRedirect:'/',
+  successRedirect:'/login',
+}));
+
+
 // LINKEDIN LOGIN SYSTEM
 router.get("/linkedin/auth", linkedin.linkedinMiddleware);
 router.get("/auth/linkedin/callback", linkedin.linkedinLogin);

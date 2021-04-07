@@ -39,11 +39,13 @@ const LocalInit = require("./passportStatergy/localStatergy");
 const googleInit = require("./passportStatergy/googleStatergy");
 const facebookInit = require("./passportStatergy/facebookStatergy");
 const linkeInit = require("./passportStatergy/linkedingStatergy");
+const gitInit = require("./passportStatergy/githubStatergy");
 LocalInit(passport);
 googleInit(passport);
 facebookInit(passport);
 linkeInit(passport);
 linkeInit(passport);
+gitInit(passport);
 app.use(passport.initialize());
 app.use(passport.session());
 
