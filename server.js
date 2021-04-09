@@ -13,6 +13,8 @@ const connectflash = require("express-flash");
 const MongoDbStore = require("connect-mongo");
 const passport = require("passport");
 const cookieParser = require("cookie-parser");
+
+// pul check
 // show routes
 app.use(morgan("dev"));
 
