@@ -5,6 +5,6 @@ const googleMiddleware = passport.authenticate("google", {scope:['email','profil
 
 const googleLogin= passport.authenticate("google", {
     successRedirect: "/",
-    failureRedirect: "/form",
+    failureRedirect: "/login",
   })
 module.exports = {googleMiddleware,googleLogin};

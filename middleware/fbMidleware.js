@@ -6,6 +6,6 @@ const fbMidleware = passport.authenticate('facebook');
 
 const fbLogin = passport.authenticate("facebook", {
   successRedirect: "/",
-  failureRedirect: "/form",
+  failureRedirect: "/login",
 });
 module.exports = {fbLogin,fbMidleware};

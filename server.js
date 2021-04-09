@@ -14,7 +14,6 @@ const MongoDbStore = require("connect-mongo");
 const passport = require("passport");
 const cookieParser = require("cookie-parser");
 
-// pul check
 // show routes
 app.use(morgan("dev"));
 
@@ -31,7 +30,7 @@ app.use(
     store: MongoDbStore.create({ mongoUrl: process.env.MONGO_URL }),
     collection: "session",
     saveUninitialized: false,
-    
+
     cookie: { maxAge: 1000 * 60 * 60 * 24 }, //24hours
   })
 );
@@ -40,14 +39,11 @@ app.use(
 const LocalInit = require("./passportStatergy/localStatergy");
 const googleInit = require("./passportStatergy/googleStatergy");
 const facebookInit = require("./passportStatergy/facebookStatergy");
-const linkeInit = require("./passportStatergy/linkedingStatergy");
-const gitInit = require("./passportStatergy/githubStatergy");
+
 LocalInit(passport);
 googleInit(passport);
 facebookInit(passport);
-linkeInit(passport);
-linkeInit(passport);
-gitInit(passport);
+
 app.use(passport.initialize());
 app.use(passport.session());
 
